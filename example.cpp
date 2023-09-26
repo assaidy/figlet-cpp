@@ -1,12 +1,3 @@
-# Use Figlet in C++
-
-### Dependencies
-
--   **figlet** package
-
-### Example
-
-```cpp
 #include "./figlet.h"
 
 int main() {
@@ -23,4 +14,3 @@ int main() {
 
     return 0;
 }
-```
