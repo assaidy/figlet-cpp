@@ -4,26 +4,38 @@
 
 -   **figlet** package
 
-### Example
+### example
 
 ```cpp
 #include "./figlet.h"
 
 int main() {
-    ahm::figlet my_figlet1("Ahmad"); // print with the default figlet font
+    ahm::figlet fig;
 
-    ahm::figlet my_figlet2;
-    std::vector<std::string> flags = { "-t", "-c" };
-    my_figlet2.flags(flags); // my_figlet2.flags({"-t", "-c"});
-    // my_figlet2.flags({ "-f ~/.local/share/fonts/future.flf" }); // you can specify the font with .flags() but .font_path() is more simple
-    my_figlet2.font_path("~/.local/share/fonts/future.flf");
-    my_figlet2.text("Hello, world!");
-    my_figlet2.execute();
-    my_figlet2.lolcat(); // requires lolcat package
+    fig.set_query("Hi").norm_print();
+    fig
+        .set_font_path("~/.local/share/fonts/ansi_regular.flf")
+        .lolcat_print();
+    fig
+        .set_font_path("~/.local/share/fonts/ansi_regular.flf")
+        .set_flags({"-t", "-c"})
+        .set_query("Hi, Ahmad")
+        .lolcat_print();
+
+    fig.reset(); // reset the query, flags and font path
+
+    // fig.norm_print(); // CE: Can't print without query
+    fig.set_query("Hi").norm_print();
+
+    fig
+        .set_font_path("~/.local/share/fonts/future.flf")
+        .set_query("Hello, world!")
+        .norm_print();
+
+    fig.lolcat_print();
 
     return 0;
 }
 ```
-output:
 
-![output](output.png)
+![example](example.png)
