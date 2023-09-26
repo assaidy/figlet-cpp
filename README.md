@@ -24,3 +24,6 @@ int main() {
     return 0;
 }
 ```
+output:
+
+![output](output.png)
